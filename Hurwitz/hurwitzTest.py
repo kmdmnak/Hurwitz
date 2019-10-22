@@ -42,9 +42,9 @@ def extractTopZeros(coefficients):
 
 class HurwitzBase:
     def __init__(self):
-        self.coefficients = []
-        self.degree: int = 0
-        self.P_array = []
+        self.coefficients = None
+        self.degree: int = None
+        self.P_array = None
 
 
 class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
@@ -52,7 +52,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         Algorithm 1.2
     """
 
-    def __init__(self, coefficients=[]):
+    def __init__(self, coefficients):
         super().__init__()
         self.coefficients = extractTopZeros(coefficients)
         self.degree = len(coefficients) - 1
@@ -105,7 +105,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
          number(int): how many times
         """
         assert number == len(P_array)-1, "mismatch number and array's length"
-        if number == len(P_array)-1:
+        if number != len(P_array)-1:
             raise Error("mismatch number and array's length")
 
         coefficients = P_array[number]
@@ -254,7 +254,8 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
             check = self.secondStep(P_array, number)
             if not check:
                 if number == self.degree - 1:
-                    assert len(P_array[-1])-1 == 1 , "mismatch last array's degree"
+                    assert len(P_array[-1]) - \
+                        1 == 1, "mismatch last array's degree"
                     isHurwitz = True
                 break
             T_coefficients = self.thirdStep(P_array[-1])
