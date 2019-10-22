@@ -254,6 +254,7 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
             check = self.secondStep(P_array, number)
             if not check:
                 if number == self.degree - 1:
+                    assert len(P_array[-1])-1 == 1 , "mismatch last array's degree"
                     isHurwitz = True
                 break
             T_coefficients = self.thirdStep(P_array[-1])

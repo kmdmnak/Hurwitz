@@ -1,6 +1,7 @@
 """
-this module contain complex number handler and complex fraction number
+this module contain handler for complex number and complex fraction
 """
+
 class Number:
     """
         Fraction
