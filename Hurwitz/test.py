@@ -1,5 +1,5 @@
 
-import algorithm
+from hurwitzTest import HurwitzStabililtyTestForComplexPolymonials,HurwitzStabililtyTestForRealPolymonials
 
 """
 5x^4 + 3x^3 +1 x^2 +0 +5
