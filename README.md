@@ -33,3 +33,15 @@ hst.P_array
 ## checkpoints
 - 係数の入力が分数だった場合.
   - 小数が入力された場合,分数に変換する?
+
+# Content
+
+## Hurwitz Stability
+
+### Hurwitz Polynomial
+実数nの多項式$P(z)$の全ての根が,複素平面における左半平面(開集合)上に存在するとき,多項式$P(z)$を,Hurwitz多項式であるという.  
+
+
+## 反例
+[1,1,4,30]
+

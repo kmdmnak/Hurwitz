@@ -23,7 +23,6 @@ def areCoefficiensPositive(coefficients):
         入力された係数が全て正か調べる.
     """
     check = sum(list(map(lambda coef: coef < 0, coefficients))) == 0
-    print("coefficient positiveness", check)
     return check
 
 
@@ -113,9 +112,6 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         if not areCoefficiensPositive(coefficients):
             return False
 
-        if number == self.degree - 2:
-            return False
-
         return True
 
     def thirdStep(self, old_P_array, Q_coefficients):
@@ -137,10 +133,15 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
 
         while (True):
             check = self.secondStep(P_array, number)
+
+            print("coefficient positiveness", check)
             if not check:
-                if number == self.degree - 2:
-                    isHurwitz = True
                 break
+            
+            if number == self.degree - 2:
+                isHurwitz=True
+                break
+
             P_array = self.thirdStep(
                 old_P_array=P_array, Q_coefficients=P_array[-1])
             number += 1
