@@ -12,7 +12,7 @@ Q_coeffiecient=[3,1,0,5]
 
 
 #H = algorithm.HurwitzStabililtyTestForRealPolymonials([5,3,1,0,5])
-H = HurwitzStabililtyTestForRealPolymonials([1,1,4,30])
+H = HurwitzStabililtyTestForRealPolymonials([1,0,4,30])
 print(H.execute())
 print(H.P_array)
 

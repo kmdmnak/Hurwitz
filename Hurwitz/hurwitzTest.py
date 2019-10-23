@@ -73,6 +73,9 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
 
         # 数値的処理
         #mu = coefficients[0]/coefficients[1]
+        if coefficients[1] == 0:
+            print("あとでやる")
+            raise Error("zero divide")
         mu = Fraction(coefficients[0], coefficients[1])
         # 高次の項から処理していく
         for i in range(1, len(coefficients) - 1):
@@ -202,6 +205,10 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         if P_coefficients[0] == 0:
             print("todo handle in thirdStep")
             pass
+        if P_coefficients[0] == 0:
+            # TODO
+            print("あとでやる")
+            raise Error("zero division")
 
         mu = (1/P_coefficients[0])
         # Todo
@@ -219,6 +226,9 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         if n == 0:
             print("todo handle in makePolynomialQ")
             pass
+
+        if T_coefficients[1] == 0:
+            raise Error("zero divition")
 
         mu = 1 / T_coefficients[1]
 
