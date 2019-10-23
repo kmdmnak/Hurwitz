@@ -18,11 +18,11 @@ class Equation:
         self.degree = len(coefficients)-1
 
 
-def areCoefficiensPositive(coefficients):
+def areCoefficientsPositive(coefficients):
     """
         入力された係数が全て正か調べる.
     """
-    check = sum(list(map(lambda coef: coef < 0, coefficients))) == 0
+    check = sum(list(map(lambda coef: coef <= 0, coefficients))) == 0
     return check
 
 
@@ -62,7 +62,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         # extract top 0s
 
         # 係数の政府の判定
-        if not areCoefficiensPositive(self.coefficients):
+        if not areCoefficientsPositive(self.coefficients):
             raise Error(
                 "invalid Coefficients. given coefficients include negative values"
             )
@@ -95,7 +95,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
     def firstStep(self, coefficients):
         P_array = []
 
-        if not areCoefficiensPositive(coefficients):
+        if not areCoefficientsPositive(coefficients):
             raise Error(
                 "invalid Coefficients. given coefficinets include negative value"
             )
@@ -112,7 +112,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
 
         coefficients = P_array[number]
         # メソッドの終了
-        if not areCoefficiensPositive(coefficients):
+        if not areCoefficientsPositive(coefficients):
             return False
 
         return True
