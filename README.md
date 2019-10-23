@@ -43,5 +43,6 @@ hst.P_array
 
 
 ## 反例
+Hurwitzではない
 [1,1,4,30]
 
