@@ -137,7 +137,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
             print("coefficient positiveness", check)
             if not check:
                 break
-            
+
             if number == self.degree - 2:
                 isHurwitz=True
                 break
@@ -246,6 +246,14 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         return Q_coefficients
 
     def execute(self):
+        """
+        isHurwitz (boolean) : whether this polynomial is stable
+
+        Return
+        ____
+        isHurwitz(boolean)
+        ____
+        """
         isHurwitz = False
         coefficients = self.coefficients
         P_array = self.firstStep(coefficients)
