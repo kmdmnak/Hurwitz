@@ -30,6 +30,9 @@ def extractTopZeros(coefficients):
     """
     最高次の係数が0だった場合,取り除く.
     """
+    if len(coefficients) == 0:
+        raise Error("given coefficients array is empty")
+
     if (coefficients[0] != 0):
         return coefficients
 
@@ -57,15 +60,14 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         self.degree = len(coefficients) - 1
 
         # check args
-        if (len(self.coefficients) == 0):
-            raise Error("No coefficients Error")
-        # extract top 0s
-
         # 係数の政府の判定
         if not areCoefficientsPositive(self.coefficients):
+            """
             raise Error(
                 "invalid Coefficients. given coefficients include negative values"
             )
+            """
+            print("\n---WARNING---\ngiven coefficients contain non-positive values\nThis Polynomial is not Hurwitz Stable\n")
 
     def makePolynomialQ(self, coefficients):
         Q_coefficients = []
@@ -74,7 +76,6 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         # 数値的処理
         #mu = coefficients[0]/coefficients[1]
         if coefficients[1] == 0:
-            print("あとでやる")
             raise Error("zero divide")
         mu = Fraction(coefficients[0], coefficients[1])
         # 高次の項から処理していく
@@ -94,11 +95,12 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
 
     def firstStep(self, coefficients):
         P_array = []
-
+        """
         if not areCoefficientsPositive(coefficients):
             raise Error(
                 "invalid Coefficients. given coefficinets include negative value"
             )
+        """
         P_array.append(coefficients)
         return P_array
 
@@ -142,7 +144,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
                 break
 
             if number == self.degree - 2:
-                isHurwitz=True
+                isHurwitz = True
                 break
 
             P_array = self.thirdStep(
@@ -193,10 +195,11 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         coefficients = P_array[number]
 
         # verify the coefficients
+        """
         if len(coefficients) < 2:
             return False
             #Error("invalid coefficients length")
-
+        """
         return (coefficients[0].real * coefficients[1].real +
                 coefficients[0].imag * coefficients[1].imag > 0)
 
@@ -207,12 +210,13 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
             pass
         if P_coefficients[0] == 0:
             # TODO
-            print("あとでやる")
             raise Error("zero division")
 
         mu = (1/P_coefficients[0])
         # Todo
-        T = list(map(lambda each_coefficient: each_coefficient * mu, P_coefficients))
+        T = list(
+            map(lambda each_coefficient: each_coefficient*mu,
+                P_coefficients))
         return T
 
     def fourthStep(self, old_P_array, Q_coefficients):
@@ -272,15 +276,19 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         while (True):
             check = self.secondStep(P_array, number)
             if not check:
-                if number == self.degree - 1:
-                    assert len(P_array[-1]) - \
-                        1 == 1, "mismatch last array's degree"
-                    isHurwitz = True
                 break
+            if len(P_array[-1]) == 2:
+                assert number == self.degree - 1, "mismatch last number"
+                assert len(P_array[-1]) - \
+                    1 == 1, "mismatch last array's degree"
+                isHurwitz = True
+                break
+            #Error("invalid coefficients length")
             T_coefficients = self.thirdStep(P_array[-1])
             Q_coefficients = self.makePolynomialQ(T_coefficients)
             P_array = self.fourthStep(
-                old_P_array=P_array, Q_coefficients=Q_coefficients)
+                old_P_array=P_array, Q_coefficients=Q_coefficients
+            )
             number += 1
         self.P_array = P_array
         return isHurwitz
