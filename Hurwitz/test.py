@@ -24,7 +24,7 @@ import sys
 from random import random
 
 
-def makeRandomCoefficients(dim, maxRange=10, minRange=0):
+def makeRandomCoefficients(dim, isReal, maxRange=5, minRange=0,):
     """
     o : 0-1
     -2~2:
@@ -32,16 +32,19 @@ def makeRandomCoefficients(dim, maxRange=10, minRange=0):
     -3~5:
         o*8-3
     """
-
-    return [random() * (maxRange - minRange)+minRange for w in range(dim+1)]
+    if isReal:
+        return[random() * (maxRange - minRange) + minRange for w in range(dim + 1)]
+    return[complex(random() * (maxRange - minRange) + minRange, random() * (maxRange - minRange) + minRange) for w in range(dim + 1)]
 
 
 def randomTest(number=1000, dim=4, isReal=True):
     count = 0
     while (count < number):
-        coefficients = makeRandomCoefficients(dim)
-
-        H = HurwitzStabililtyTestForRealPolymonials(coefficients)
+        coefficients = makeRandomCoefficients(dim, isReal)
+        if isReal:
+            H = HurwitzStabililtyTestForRealPolymonials(coefficients)
+        else:
+            H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
         result = H.execute()
         result_solve = solve(coefficients, ploting=False)
         if result != result_solve:
@@ -60,11 +63,14 @@ if __name__ == "__main__":
         H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
         """
         #coefficients = [3, 6, 4, 3, 7, 4, 5]
-        coefficients = [3, 6, 4]
-        H = HurwitzStabililtyTestForRealPolymonials(coefficients)
-        print(H.P_array)
+        coefficients = [
+            1+3j, 4+2j, 2+1j, 4+1j
+        ]
+        #H = HurwitzStabililtyTestForRealPolymonials(coefficients)
+        H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
         result = H.execute()
-        result_solve = solve(coefficients, False)
+        result_solve = solve(coefficients, True)
+        print(H.P_array)
         if result:
             print("this is hurwirtz")
         print("\n")
@@ -80,7 +86,7 @@ if __name__ == "__main__":
         print(values[0].real * values[1].real -
               values[0].imag * values[1].imag)
     elif sys.argv[1] == "2":
-        randomTest(number=10000, dim=4)
+        randomTest(number=3000, dim=4,isReal=False)
 
 """
 H = algorithm.HurwitzStabililtyTestForComplexPolymonials([

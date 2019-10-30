@@ -132,25 +132,25 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         P_array = self.firstStep(coefficients)
         check = True
         isHurwitz = False
-        number = 0
+        count = 0
 
         if (self.degree == 0):
             return True
 
         while (True):
-            check = self.secondStep(P_array, number)
+            check = self.secondStep(P_array, count)
 
             #print("coefficient positiveness", check)
             if not check:
                 break
 
-            if number == self.degree - 2:
+            if count >= self.degree - 2:
                 isHurwitz = True
                 break
 
             P_array = self.thirdStep(
                 old_P_array=P_array, Q_coefficients=P_array[-1])
-            number += 1
+            count += 1
         self.P_array = P_array
         return isHurwitz
 
