@@ -22,14 +22,25 @@ import sys
 #H = HurwitzStabililtyTestForRealPolymonials(coefficients)
 if __name__ == "__main__":
     if sys.argv[1] == "0":
+        """
         coefficients = [
             1+3j, 4+2j, 2+1j, 4+1j
         ]
         H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
-        print(H.execute())
+        """
+        #coefficients = [3, 6, 4, 3, 7, 4, 5]
+        coefficients = [3, 6, 4]
+        H = HurwitzStabililtyTestForRealPolymonials(coefficients)
         print(H.P_array)
-
-        solve(coefficients)
+        result = H.execute()
+        result_solve = solve(coefficients, False)
+        if result:
+            print("this is hurwirtz")
+        print("\n")
+        if result == result_solve:
+            print("Same Result !!")
+        else:
+            print("Mismatch Result !!")
     elif sys.argv[1] == "1":
         values = [
             0.47874720357941836-0.19821029082774066j,
