@@ -77,7 +77,8 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         #mu = coefficients[0]/coefficients[1]
         if coefficients[1] == 0:
             raise Error("zero divide")
-        mu = Fraction(coefficients[0], coefficients[1])
+        #mu = Fraction(coefficients[0], coefficients[1])
+        mu = coefficients[0]/coefficients[1]
         # 高次の項から処理していく
         for i in range(1, len(coefficients) - 1):
             if isEven:
@@ -139,7 +140,7 @@ class HurwitzStabililtyTestForRealPolymonials(HurwitzBase):
         while (True):
             check = self.secondStep(P_array, number)
 
-            print("coefficient positiveness", check)
+            #print("coefficient positiveness", check)
             if not check:
                 break
 

@@ -9,8 +9,10 @@ def solve(coefficients, ploting=True):
     # Solve f(x) == 0.
     X, Y = [], []
     roots = f.roots()
+    """
     print("polynomial: ", f)
     print("roots: ", roots)
+    """
     result = areRootsRealPositive(roots)
     
     if ploting:
