@@ -67,7 +67,7 @@ if __name__ == "__main__":
         """
         #coefficients = [3, 6, 4, 3, 7, 4, 5]
         coefficients = [
-            1+3j, 4+2j, 2+1j, 4+1j
+            1+1j,1+4j
         ]
         #H = HurwitzStabililtyTestForRealPolymonials(coefficients)
         H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         result_solve = solve(coefficients, True)
         print(H.P_array)
         if result:
-            print("this is hurwirtz")
+            print("this is hurwitz")
         print("\n")
         if result == result_solve:
             print("Same Result !!")
@@ -89,7 +89,7 @@ if __name__ == "__main__":
         print(values[0].real * values[1].real -
               values[0].imag * values[1].imag)
     elif sys.argv[1] == "2":
-        randomTest(number=1000, dim=3,isReal=False)
+        randomTest(number=10000, dim=3,isReal=False)
 
 """
 H = algorithm.HurwitzStabililtyTestForComplexPolymonials([

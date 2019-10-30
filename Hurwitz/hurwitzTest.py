@@ -187,7 +187,8 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         Returns
             result : boolean
         """
-
+        if len(P_array[number])==1:
+            return False
         assert number == len(P_array)-1, "mismatch number and array's length"
         if number != len(P_array)-1:
             raise Error("mismatch number and array's length")
@@ -269,14 +270,14 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         isHurwitz = False
         coefficients = self.coefficients
         P_array = self.firstStep(coefficients)
-        number = 0
+        count = 0
 
         while (True):
-            check = self.secondStep(P_array, number)
+            check = self.secondStep(P_array, count)
             if not check:
                 break
-            if number >= self.degree-1:
-                assert number == self.degree - 1, "mismatch last number"
+            if count >= self.degree-1:
+                assert count == self.degree - 1, "mismatch last count"
                 assert len(P_array[-1]) - \
                     1 == 1, "mismatch last array's degree"
                 isHurwitz = True
@@ -287,6 +288,6 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
             P_array = self.fourthStep(
                 old_P_array=P_array, Q_coefficients=Q_coefficients
             )
-            number += 1
+            count += 1
         self.P_array = P_array
         return isHurwitz
