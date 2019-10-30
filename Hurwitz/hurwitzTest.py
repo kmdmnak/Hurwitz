@@ -207,9 +207,6 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
     def thirdStep(self, P_coefficients):
         # 最高次の係数が0でない
         if P_coefficients[0] == 0:
-            print("todo handle in thirdStep")
-            pass
-        if P_coefficients[0] == 0:
             # TODO
             raise Error("zero division")
 
@@ -235,7 +232,7 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
         if T_coefficients[1] == 0:
             raise Error("zero divition")
 
-        mu = 1 / T_coefficients[1]
+        mu = 1 / T_coefficients[1].real
 
         # 偶数回目の処理かどうか
         isEven = True
@@ -278,7 +275,7 @@ class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
             check = self.secondStep(P_array, number)
             if not check:
                 break
-            if len(P_array[-1]) == 2:
+            if number >= self.degree-1:
                 assert number == self.degree - 1, "mismatch last number"
                 assert len(P_array[-1]) - \
                     1 == 1, "mismatch last array's degree"

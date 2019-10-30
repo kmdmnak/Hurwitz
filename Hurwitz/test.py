@@ -39,6 +39,7 @@ def makeRandomCoefficients(dim, isReal, maxRange=5, minRange=0,):
 
 def randomTest(number=1000, dim=4, isReal=True):
     count = 0
+    missmatch_count=0
     while (count < number):
         coefficients = makeRandomCoefficients(dim, isReal)
         if isReal:
@@ -48,10 +49,12 @@ def randomTest(number=1000, dim=4, isReal=True):
         result = H.execute()
         result_solve = solve(coefficients, ploting=False)
         if result != result_solve:
-            print("Mismatch Result !!")
-            print(coefficients)
-            print()
+            #print("Mismatch Result !!")
+            #print(coefficients)
+            #print()
+            missmatch_count+=1
         count += 1
+    print("{0}/{1}".format(missmatch_count,number))
 
 
 if __name__ == "__main__":
@@ -86,7 +89,7 @@ if __name__ == "__main__":
         print(values[0].real * values[1].real -
               values[0].imag * values[1].imag)
     elif sys.argv[1] == "2":
-        randomTest(number=3000, dim=4,isReal=False)
+        randomTest(number=1000, dim=3,isReal=False)
 
 """
 H = algorithm.HurwitzStabililtyTestForComplexPolymonials([
