@@ -1,7 +1,7 @@
 """
 this module contain handler for complex number and complex fraction
 """
-
+from fractions import Fraction
 class Number:
     """
         Fraction
@@ -12,12 +12,16 @@ class Number:
     """
     pass
 
-class Complex:
+class Complex(complex):
     def __init__(self, real, imag):
         """
             real : Number
             imag : Number
         """
-        self.imag = imag
-        self.real = real
+        super().__init__()
+
+class fraction(Fraction):
+    def __init__(self):
+        super.__init__()
+
         

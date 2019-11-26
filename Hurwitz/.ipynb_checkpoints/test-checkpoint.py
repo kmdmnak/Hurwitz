@@ -1,5 +1,5 @@
 
-from hurwitzTest2 import HurwitzStabililtyTestForComplexPolymonials, HurwitzStabililtyTestForRealPolymonials, Kharitonov
+from hurwitzTest import HurwitzStabililtyTestForComplexPolymonials, HurwitzStabililtyTestForRealPolymonials
 from equation import solve
 
 """
@@ -39,7 +39,7 @@ def makeRandomCoefficients(dim, isReal, maxRange=5, minRange=0,):
 
 def randomTest(number=1000, dim=4, isReal=True):
     count = 0
-    missmatch_count = 0
+    missmatch_count=0
     while (count < number):
         coefficients = makeRandomCoefficients(dim, isReal)
         if isReal:
@@ -50,11 +50,11 @@ def randomTest(number=1000, dim=4, isReal=True):
         result_solve = solve(coefficients, ploting=False)
         if result != result_solve:
             #print("Mismatch Result !!")
-            # print(coefficients)
-            # print()
-            missmatch_count += 1
+            #print(coefficients)
+            #print()
+            missmatch_count+=1
         count += 1
-    print("{0}/{1}".format(missmatch_count, number))
+    print("{0}/{1}".format(missmatch_count,number))
 
 
 if __name__ == "__main__":
@@ -65,30 +65,21 @@ if __name__ == "__main__":
         ]
         H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
         """
-        # coefficients = [-1,-1]#[3, 6, 4, 3, 7, 4, 5]
-        """
-        
-        chapter 5@
+        coefficients = [1]#[3, 6, 4, 3, 7, 4, 5]
         """
         coefficients = [
-            1+3j, 4+2j
+            1+3j, 4+2j, 2+1j, 4+1j
         ]
-        # , ,3+1j
-        #H = HurwitzStabililtyTestForRealPolymonials(coefficients)
-        H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
+        """
+        H = HurwitzStabililtyTestForRealPolymonials(coefficients)
+        #H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
         result = H.execute()
+        result_solve = solve(coefficients, True)
+        print(H.P_array)
         if result:
             print("this is hurwitz")
         else:
             print("this is not hurwitz")
-
-        result_solve = None
-        if len(coefficients) != 1:
-            result_solve = solve(coefficients, True)
-        else:
-            pass
-        # print(H.P_array)
-
         print("\n")
         if result == result_solve:
             print("Same Result !!")
@@ -102,12 +93,7 @@ if __name__ == "__main__":
         print(values[0].real * values[1].real -
               values[0].imag * values[1].imag)
     elif sys.argv[1] == "2":
-        randomTest(number=10000, dim=1, isReal=False)
-    elif sys.argv[1] == "3":
-        # [[3, 4], [3, 7], [2, 6]] -> True
-        # [[3, 4], [3, 7], [2, 6], [2, 3]] -> one False
-        K = Kharitonov([[3, 4], [3, 7], [2,7], [3, 4], [3, 5], [7, 10], [3, 6]])
-        K.execute()
+        randomTest(number=10000, dim=3,isReal=False)
 
 """
 H = algorithm.HurwitzStabililtyTestForComplexPolymonials([
