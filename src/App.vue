@@ -6,7 +6,7 @@
 export default {
   data() {
     return {
-      test: "Hello Vue!!"
+     test: "Hello Vue!!"
     };
   },
   components: {}
