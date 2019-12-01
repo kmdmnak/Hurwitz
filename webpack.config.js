@@ -3,7 +3,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
     entry: {
-        "static/main": [path.resolve(__dirname, "src", "index.ts")]
+        "static/main": [path.resolve(__dirname, "src", "index.js")]
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -31,9 +31,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
                 use: [
-                    "style-loader",
+                    "vue-style-loader",
                     {
                         loader: "css-loader",
                         options: {
