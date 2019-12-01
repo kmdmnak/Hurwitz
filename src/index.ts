@@ -1,7 +1,6 @@
-import Vue from "vue";
-import Chart from './component/Chart.vue'
-import Sidebar from './components/Sidebar.vue'
-import App from "./App.vue";
+import Vue from 'vue';
+import App from './App.vue'
+import Chart from './components/Chart.vue';
 
 Vue.component(
     'Chart',
@@ -9,9 +8,8 @@ Vue.component(
         template:'<Chart/>'
     }
 )
-
 new Vue({
-  el: "#app",
-  template: "<App/>",
-  components: { App }
-});
+    el: "#app",
+    template: "<App/>",
+    components: { App }
+})
