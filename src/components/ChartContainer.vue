@@ -12,6 +12,11 @@ export default {
   components: {
     ScatterChart
   },
+  methods:{
+    makeData:function(){
+
+    }
+  },
   data: () => ({
     loaded: false,
     chartdata: {

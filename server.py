@@ -33,11 +33,12 @@ def hurwitz():
         print("this is not hurwitz")
     result_solve = None
     if len(coefficients) != 1:
-        result_solve,roots = solve_root(coefficients, True)
+        result_solve, roots = solve_root(coefficients, True)
     else:
         pass
     # to list
-    roots = list(map(lambda x: [float(x.real), float(x.imag)], roots))
+    roots = list(map(lambda x: {"x": float(x.real),
+                                "y": float(x.imag)}, roots))
     print(roots)
     return {"roots": roots}
 
