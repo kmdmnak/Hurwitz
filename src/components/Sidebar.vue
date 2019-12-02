@@ -65,7 +65,6 @@ export default {
       }
       this.$emit('changeChartData',roots)
     }
-
   },
   data() {
     return {
