@@ -1,6 +1,6 @@
 <template>
   <div>
-    <scatter-chart :chartdata="chartdata" :options="options" />
+    <scatter-chart :chartdata="chartData" :options="options" />
   </div>
 </template>
 
@@ -12,28 +12,9 @@ export default {
   components: {
     ScatterChart
   },
+  props: ["chartData"],
   data: () => ({
     loaded: false,
-    chartdata: {
-      datasets: [
-        {
-          data: [
-            {
-              x: -10,
-              y: 0
-            },
-            {
-              x: 0,
-              y: 10
-            },
-            {
-              x: 10,
-              y: 5
-            }
-          ]
-        }
-      ]
-    },
     options: {
       scales: {
         xAxes: [

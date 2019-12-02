@@ -7,10 +7,10 @@
     />
     <div id="content">
       <div class="chart-container">
-        <chart />
+        <chart :chartData="chartData" />
       </div>
       <div class="sidebar">
-        <sidebar />
+        <sidebar @changeChartData="changeChartData" />
       </div>
     </div>
   </div>
@@ -23,6 +23,17 @@ export default {
   components: {
     chart: ChartConteinar,
     sidebar: Sidebar
+  },
+  methods: {
+    changeChartData: function(newData) {
+      this.chartData = {
+        datasets: [
+          {
+            data: newData
+          }
+        ]
+      };
+    }
   },
   data: function() {
     return {
