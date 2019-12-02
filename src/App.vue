@@ -1,24 +1,47 @@
 
 <template>
   <div>
-    <p>{{test}}</p>
-    <chart />
-    <sidebar/>
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
+    />
+    <div id="content">
+      <div class="chart-container">
+        <chart />
+      </div>
+      <div class="sidebar">
+        <sidebar />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Chart from "./components/Chart";
-import Sidebar from './components/Sidebar'
+import ChartConteinar from "./components/ChartContainer.vue";
+import Sidebar from "./components/Sidebar";
 export default {
-  data() {
-    return {
-      test: "Hello Vue!!"
-    };
-  },
   components: {
-    'chart':Chart,
-    'sidebar':Sidebar
+    chart: ChartConteinar,
+    sidebar: Sidebar
+  },
+  data: function() {
+    return {
+      chartData: null
+    };
   }
 };
 </script>
+
+<style scoped>
+.chart-container {
+  width: 300px;
+  height: 300px;
+  float: left;
+}
+#content {
+  position: relative;
+}
+.sidebar {
+  float: left;
+}
+</style>

@@ -4,6 +4,20 @@ import matplotlib.pyplot as plt
 from numpy import linspace, zeros
 
 
+def solve_root(coefficients, ploting=True):
+    f = Polynomial(list(reversed(coefficients)))
+
+    # Solve f(x) == 0.
+    X, Y = [], []
+    roots = f.roots()
+    """
+    print("polynomial: ", f)
+    print("roots: ", roots)
+    """
+    result = areRootsRealPositive(roots)
+    return result,roots
+
+
 def solve(coefficients, ploting=True):
     f = Polynomial(list(reversed(coefficients)))
 
@@ -15,7 +29,7 @@ def solve(coefficients, ploting=True):
     print("roots: ", roots)
     """
     result = areRootsRealPositive(roots)
-    
+
     if ploting:
         for each_root in roots:
             root = complex(each_root)

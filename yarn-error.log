@@ -1,29 +1,29 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D 'vue-style-loader'
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add chart-js
 
 PATH: 
-  C:\Program Files\Haskell\bin;C:\Program Files\Haskell Platform\8.6.5\lib\extralibs\bin;C:\Program Files\Haskell Platform\8.6.5\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\12.0\DLLShared\;C:\Program Files (x86)\Roxio 2010\OEM\AudioCore\;C:\Program Files (x86)\Common Files\Ulead Systems\MPEG;C:\Program Files (x86)\QuickTime\QTSystem\;C:\w32tex\bin;C:\Program Files (x86)\gs\gs9.20\bin;C:\Program Files (x86)\gs\gs9.20\lib;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files\Haskell Platform\8.6.5\mingw\bin;C:\Program Files\Dart\dart-sdk\bin;C:\Program Files\dotnet\;C:\Users\gale\AppData\Roaming\cabal\bin;C:\Users\gale\AppData\Roaming\local\bin;C:\Users\gale\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\gale\AppData\Local\Programs\Python\Python36\;C:\Users\gale\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gale\AppData\Local\Programs\Python\Python36-32\;C:\Users\gale\AppData\Local\Microsoft\WindowsApps;C:\Users\gale\AppData\Local\GitHubDesktop\bin;C:\Users\gale\AppData\Local\Microsoft\WindowsApps;C:\Users\gale\AppData\Local\Yarn\bin;C:\Users\gale\AppData\Roaming\npm;C:\Users\gale\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files (x86)\dex2jar-2.0;C:\Users\gale\.dotnet\tools
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\w32tex\bin;C:\Users\tyobe\Downloads\gs9.19\bin;C:\Users\tyobe\Downloads\gs9.19\lib;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files (x86)\Tesseract-OCR;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Dart\dart-sdk\bin;C:\Program Files\erl10.3\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\Go\bin;C:\Users\tyobe\go\src\github.com\mattn\gopher\cmd\gopher\gopher.exe;C:\Program Files\dotnet\;C:\Users\tyobe\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\tyobe\AppData\Local\Programs\Python\Python37\;C:\Users\tyobe\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\tyobe\AppData\Local\Programs\Python\Python37-32\;C:\Users\tyobe\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\tyobe\AppData\Local\Programs\Python\Python36\;C:\Users\tyobe\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\tyobe\AppData\Local\Programs\Python\Python36-32\;C:\Users\tyobe\AppData\Local\Microsoft\WindowsApps;C:\Users\tyobe\AppData\Local\Programs\Python\Python36\lib\site-packages\MeCab.py;C:\Users\tyobe\AppData\Local\Programs\Python\Python36\lib\site-packages\gensim;C:\Users\tyobe\AppData\Local\bin\NASM;C:\MinGW\bin;C:\Users\tyobe\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_201;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files\Java\jdk1.8.0_201\jre\bin;C:\Program Files (x86)\Tesseract-OCR;C:\Program Files\kotlinc\bin;C:\Program Files (x86)\CaboCha\bin;C:\Program Files (x86)\MeCab\bin;C:\Users\tyobe\AppData\Local\Programs\Microsoft VS Code\bin;C:\src\flutter\bin;C:\Users\tyobe\AppData\Local\Yarn\bin;C:\Program Files\Dart\dart-sdk\bin\dart.exe;C:\Program Files\7-Zip;C:\Users\tyobe\go\bin;C:\Users\tyobe\go\src\github.com\mattn\gopher\cmd\gopher\gopher.exe;C:\Gradle\gradle-5.6.4\bin;C:\Users\tyobe\.dotnet\tools
 
 Yarn version: 
-  1.19.1
+  1.17.3
 
 Node version: 
-  10.16.3
+  10.15.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/%27vue-style-loader%27: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66035:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140564:22)
-      at Request.emit (events.js:198:13)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141536:10)
-      at Request.emit (events.js:198:13)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141458:12)
-      at Object.onceWrapper (events.js:286:20)
-      at IncomingMessage.emit (events.js:203:15)
-      at endReadableNT (_stream_readable.js:1145:12)
+  Error: https://registry.yarnpkg.com/chart-js: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65939:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140464:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141436:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141358:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1094:12)
       at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
@@ -36,7 +36,8 @@ npm manifest:
       "license": "MIT",
       "dependencies": {
           "core-js": "^3.4.5",
-          "vue": "^2.6.10",
+          "vue": "2.5.0",
+          "vue-chartjs": "^3.5.0",
           "vue-material": "^1.0.0-beta-11",
           "vuex": "^3.1.2"
       },
@@ -50,14 +51,16 @@ npm manifest:
           "typed-css-modules": "^0.6.3",
           "typescript": "^3.7.2",
           "vue-loader": "^15.7.2",
-          "vue-template-compiler": "^2.6.10",
+          "vue-style-loader": "^4.1.2",
+          "vue-template-compiler": "2.5.0",
           "webpack": "^4.41.2",
           "webpack-cli": "^3.3.10"
       },
       "scripts": {
           "tsinit": "tsc --init",
           "css": "tcm src --watch",
-          "build": "webpack --watch"
+          "build": "webpack --watch",
+          "start": "python server.py"
       }
   }
 
@@ -3606,6 +3609,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
     integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
   
+  vue-chartjs@^3.5.0:
+    version "3.5.0"
+    resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.0.tgz#edd0c2be94c521bcbc5357c24afb9f3560855f84"
+    integrity sha512-yWNhG3B6g6lvYqNInP0WaDWNZG/SNb6XnltkjR0wYC5pmLm6jvdiotj8er7Mui8qkJGfLZe6ULjrZdHWjegAUg==
+  
   vue-hot-reload-api@^2.3.0:
     version "2.3.4"
     resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -3627,7 +3635,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vue-material/-/vue-material-1.0.0-beta-11.tgz#11baf0cdb22a35d35859c619099d6c3cb3cc2cc3"
     integrity sha512-1+dIVkQafMIA/zNONb7OwGaTjAxaWk/JhUA2/FInQvbArxf1ToKB+yIdeSfzopQ1KICnBTAmk9E0Vdr5p4MWNA==
   
-  vue-style-loader@^4.1.0:
+  vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     version "4.1.2"
     resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
     integrity sha512-0ip8ge6Gzz/Bk0iHovU9XAUQaFt/G2B61bnWa2tCcqqdgfHs1lF9xXorFbE55Gmy92okFT+8bfmySuUOu13vxQ==
@@ -3635,10 +3643,10 @@ Lockfile:
       hash-sum "^1.0.2"
       loader-utils "^1.0.2"
   
-  vue-template-compiler@^2.6.10:
-    version "2.6.10"
-    resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
-    integrity sha512-jVZkw4/I/HT5ZMvRnhv78okGusqe0+qH2A0Em0Cp8aq78+NK9TII263CDVz2QXZsIT+yyV/gZc/j/vlwa+Epyg==
+  vue-template-compiler@2.5.0:
+    version "2.5.0"
+    resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.0.tgz#2e138f1643e131f24f6e19733690713b7543a937"
+    integrity sha512-W4hDoXXpCwfilO1MRTDM4EHm1DC1mU1wS8WyvEo119cUtxdaPuq/dD0OJbSEIkeW8fdT07qGCSnLOfPlmrKRqw==
     dependencies:
       de-indent "^1.0.2"
       he "^1.1.0"
@@ -3648,10 +3656,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
     integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
   
-  vue@^2.6.10:
-    version "2.6.10"
-    resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
-    integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+  vue@2.5.0:
+    version "2.5.0"
+    resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.0.tgz#7f0706c0804257e8d42e5970e1a36e648483988d"
+    integrity sha512-KngZQLLe/N2Bvl3qu0xgqQHemm9MNz9y73D7yJ5tVavOKyhSgCLARYzrXJzYtoeadUSrItzV36VrHywLGVUx7w==
   
   vuex@^3.1.2:
     version "3.1.2"

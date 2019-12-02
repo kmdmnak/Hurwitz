@@ -6,7 +6,7 @@ module.exports = {
         "static/main": [path.resolve(__dirname, "src", "index.js")]
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname),
         filename: "[name].js"
     },
     resolve: {
@@ -33,12 +33,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     "vue-style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: true
-                        }
-                    }
+                    "css-loader"
                 ]
             },
             {
