@@ -29,10 +29,13 @@ export default {
       this.chartData = {
         datasets: [
           {
+            label: 'Scatter Dataset',
             data: newData
           }
         ]
       };
+      console.log("in change chart data");
+      console.log(this.chartData);
     }
   },
   data: function() {

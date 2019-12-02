@@ -20,10 +20,19 @@ export default {
         xAxes: [
           {
             type: "linear",
-            position: "bottom"
           }
+        ],
+        yAxes: [
         ]
       }
+    },
+    data: {
+      datasets: [
+        {
+          label: "Scatter Dataset",
+          data: [{ x: 1, y: -4.5 }, { x: 3, y: 2.2 }]
+        }
+      ]
     }
   })
 };

@@ -13,8 +13,19 @@ export default {
       default: null
     }
   },
+  computed: {
+    data: function() {
+      return this.chartdata;
+    }
+  },
+  watch: {
+    data: function() {
+      //this.renderChart(this.data, this.options);
+      this.renderChart(this.data,this.options);
+    }
+  },
   mounted() {
-    this.renderChart(this.chartdata, this.options);
+    this.renderChart(this.data, this.options);
   }
 };
 </script>
