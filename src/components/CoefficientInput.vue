@@ -1,20 +1,19 @@
 <template>
-  <md-field>
-    <label>{{label}}</label>
-    <md-input
-    :value='coefficient'
-    v-model="value"
-    @input= "$emit('input',index, value)"></md-input>
-  </md-field>
+  <div class="coefficient-input">
+    <md-field>
+      <label>{{label}}</label>
+      <md-input :value="coefficient" v-model="value" @input="$emit('input',index, value)"></md-input>
+    </md-field>
+  </div>
 </template>
 
 <script>
 export default {
   name: "coefficient-input",
-  props: ["label","coefficient","index"],
+  props: ["label", "coefficient", "index"],
   data: function() {
     return {
-      value:null,
+      value: null,
       type: null,
       withLabel: null,
       inline: null,
@@ -26,3 +25,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.coefficient-input {
+  height: 40px;
+  margin: 10px;
+}
+</style>

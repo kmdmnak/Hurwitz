@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chart-container">
     <scatter-chart :chartdata="chartData" :options="options" />
   </div>
 </template>
@@ -37,4 +37,3 @@ export default {
   })
 };
 </script>
-

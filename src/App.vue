@@ -29,7 +29,7 @@ export default {
       this.chartData = {
         datasets: [
           {
-            label: 'Scatter Dataset',
+            label: "Scatter Dataset",
             data: newData
           }
         ]
@@ -48,8 +48,9 @@ export default {
 
 <style scoped>
 .chart-container {
-  width: 300px;
-  height: 300px;
+  padding: 30px;
+  width: 500px;
+  height: 500px;
   float: left;
 }
 #content {
@@ -57,5 +58,7 @@ export default {
 }
 .sidebar {
   float: left;
+  width: 150px;
+  margin:20px;
 }
 </style>

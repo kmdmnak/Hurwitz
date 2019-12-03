@@ -7,6 +7,7 @@
       <button v-on:click="hurwitz">execute</button>
     </div>
     <div id="execution"></div>
+    <draggable v-model="coefficients" @end="()=>{}">
     <div
       is="coefficient-input"
       v-for="coef in coefficients"
@@ -16,12 +17,14 @@
       v-bind:index="coef.index"
       @input="updatedInput"
     ></div>
+    </draggable>
     <button v-on:click="check">check</button>
   </div>
 </template>
 
 <script>
 import CoefficientInput from "./CoefficientInput";
+import draggable from 'vuedraggable'
 export default {
   name: "sidebar",
   methods: {
@@ -47,23 +50,21 @@ export default {
     },
     hurwitz: async function() {
       // make data for api
-      const coefficient_values = this.coefficients.map(
-        each_element => each_element.value
-      ).reverse();
-      console.log("in hurwitz")
-      console.log(coefficient_values)
+      const coefficient_values = this.coefficients
+        .map(each_element => each_element.value)
+        .reverse();
       const result = await fetch("/hurwitz", {
         method: "POST",
         body: JSON.stringify({
           coefficients: coefficient_values
         })
-      }).then((res)=>res.json());
-      console.log(result);
-      const roots=result.roots
-      if(!roots){
+      }).then(res => res.json());
+
+      const roots = result.roots;
+      if (!roots) {
         return;
       }
-      this.$emit('changeChartData',roots)
+      this.$emit("changeChartData", roots);
     }
   },
   data() {
@@ -72,7 +73,8 @@ export default {
     };
   },
   components: {
-    "coefficient-input": CoefficientInput
+    "coefficient-input": CoefficientInput,
+    draggable
   }
 };
 </script>
