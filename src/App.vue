@@ -10,7 +10,13 @@
         <chart :chartData="chartData" />
       </div>
       <div class="sidebar">
-        <sidebar @changeChartData="changeChartData" />
+        <sidebar
+        @changeChartData="changeChartData" 
+        @changeCoefficient="changeCoefficient"
+        />
+      </div>
+      <div class="display">
+        <display :coefficients="coefficients"/>
       </div>
     </div>
   </div>
@@ -19,28 +25,40 @@
 <script>
 import ChartConteinar from "./components/ChartContainer.vue";
 import Sidebar from "./components/Sidebar";
+import Display from "./components/Display";
+
 export default {
   components: {
     chart: ChartConteinar,
-    sidebar: Sidebar
+    sidebar: Sidebar,
+    display: Display
   },
   methods: {
     changeChartData: function(newData) {
+      // make chartData
+      const pointBackgroundColor = newData.map(each_data => {
+        return each_data.x > 0 ? "#ff0000" : "#0000ff";
+      });
       this.chartData = {
         datasets: [
           {
             label: "Scatter Dataset",
-            data: newData
+            data: newData,
+            pointBackgroundColor: pointBackgroundColor
           }
         ]
       };
       console.log("in change chart data");
       console.log(this.chartData);
+    },
+    changeCoefficient:function(newCoefficient){
+      this.coefficients=newCoefficient;
     }
   },
   data: function() {
     return {
-      chartData: null
+      chartData: null,
+      coefficients:null
     };
   }
 };
@@ -59,6 +77,6 @@ export default {
 .sidebar {
   float: left;
   width: 150px;
-  margin:20px;
+  margin: 20px;
 }
 </style>

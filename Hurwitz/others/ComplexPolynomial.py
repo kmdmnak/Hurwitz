@@ -1,5 +1,6 @@
 from utils import Error,HurwitzBase,extractTopZeros
 
+
 class HurwitzStabililtyTestForComplexPolymonials(HurwitzBase):
     """
         Algorithm 1.3

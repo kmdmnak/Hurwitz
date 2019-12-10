@@ -15,6 +15,7 @@ def index():
     text = """
     <div id="app"></div>
     <div id="app1"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML"></script>
     <script src="./source/main.js"></script>
     """
     return text

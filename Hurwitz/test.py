@@ -1,4 +1,5 @@
 
+import time
 from hurwitzTest2 import HurwitzStabililtyTestForComplexPolymonials, HurwitzStabililtyTestForRealPolymonials, Kharitonov
 from equation import solve
 
@@ -40,14 +41,20 @@ def makeRandomCoefficients(dim, isReal, maxRange=5, minRange=0,):
 def randomTest(number=1000, dim=4, isReal=True):
     count = 0
     missmatch_count = 0
+    time_storages = []
     while (count < number):
+        each_times = []
         coefficients = makeRandomCoefficients(dim, isReal)
         if isReal:
             H = HurwitzStabililtyTestForRealPolymonials(coefficients)
         else:
             H = HurwitzStabililtyTestForComplexPolymonials(coefficients)
+        t1 = time.time()
         result = H.execute()
+        t2 = time.time()
         result_solve = solve(coefficients, ploting=False)
+        t3 = time.time()
+        time_storages.append((t2-t1, t3-t2))
         if result != result_solve:
             #print("Mismatch Result !!")
             # print(coefficients)
@@ -55,6 +62,7 @@ def randomTest(number=1000, dim=4, isReal=True):
             missmatch_count += 1
         count += 1
     print("{0}/{1}".format(missmatch_count, number))
+    return time_storages
 
 
 if __name__ == "__main__":
@@ -102,7 +110,13 @@ if __name__ == "__main__":
         print(values[0].real * values[1].real -
               values[0].imag * values[1].imag)
     elif sys.argv[1] == "2":
-        randomTest(number=10000, dim=1, isReal=False)
+        dim=250
+        times = randomTest(number=100, dim=dim, isReal=True)
+        txt = ""
+        for each_time in times:
+            txt += ",".join(list(map(lambda x: str(x), each_time)))+"\n"
+        with open("times_{0}.csv".format(str(dim)), "w", encoding="utf-8") as f:
+            f.write(txt)
     elif sys.argv[1] == "3":
         # [[3, 4], [3, 7], [2, 6]] -> True
         # [[3, 4], [3, 7], [2, 6], [2, 3]] -> one False

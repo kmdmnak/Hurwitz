@@ -7,16 +7,16 @@
       <button v-on:click="hurwitz">execute</button>
     </div>
     <div id="execution"></div>
-    <draggable v-model="coefficients" @end="()=>{}">
-    <div
-      is="coefficient-input"
-      v-for="coef in coefficients"
-      v-bind:key="coef.name"
-      v-bind:label="coef.name"
-      v-bind:coefficient="coef.value"
-      v-bind:index="coef.index"
-      @input="updatedInput"
-    ></div>
+    <draggable v-model="coefficients" @end="onEnd">
+      <div
+        is="coefficient-input"
+        v-for="coef in coefficients"
+        v-bind:key="coef.id"
+        v-bind:label="coef.name"
+        v-bind:coefficient="coef.value"
+        v-bind:index="coef.index"
+        @input="updatedInput"
+      ></div>
     </draggable>
     <button v-on:click="check">check</button>
   </div>
@@ -24,7 +24,7 @@
 
 <script>
 import CoefficientInput from "./CoefficientInput";
-import draggable from 'vuedraggable'
+import draggable from "vuedraggable";
 export default {
   name: "sidebar",
   methods: {
@@ -32,7 +32,8 @@ export default {
       this.coefficients.push({
         name: String(this.coefficients.length) + "-th coefficient",
         value: null,
-        index: this.coefficients.length
+        index: this.coefficients.length,
+        id:this.coefficients.length
       });
     },
     pop_coef: function() {
@@ -64,7 +65,17 @@ export default {
       if (!roots) {
         return;
       }
+      this.$emit("changeCoefficient", Object.assign([],this.coefficients));
       this.$emit("changeChartData", roots);
+    },
+    onEnd: function() {
+      let i = 0;
+      this.coefficients.forEach(each_element => {
+        each_element["index"] = i;
+        each_element["name"] =
+          i !== 0 ? String(i) + "-th coefficient" : "const";
+        i++;
+      });
     }
   },
   data() {
