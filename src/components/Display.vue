@@ -1,28 +1,39 @@
 <template>
-  <vue-mathjax :formula="formula" :safe="false"></vue-mathjax>
+  <div id="display">
+    <div v-if="isHurwitzStable!==null">
+      <h1 v-if="isHurwitzStable" v-bind:style="{color:'blue'}">This polynomial is Hurwitz Stable</h1>
+      <h1 v-else v-bind:style="{color:'red'}">This polynomial is not Hurwitz Stable</h1>
+    </div>
+    <vue-mathjax :formula="formula" :safe="false"></vue-mathjax>
+  </div>
 </template>
-
+<style scoped>
+#display {
+  padding: 40px;
+}
+</style>
 <script>
-import { VueMathjax } from 'vue-mathjax'
+import { VueMathjax } from "vue-mathjax";
 export default {
-  props: ["coefficients"],
-  components:{
-    'vue-mathjax': VueMathjax
+  props: ["coefficients", "isHurwitzStable"],
+  components: {
+    "vue-mathjax": VueMathjax
   },
   computed: {
     formula: function() {
       console.log("in formula");
       if (!this.coefficients) {
-        return;
+        return null;
       }
-      let formula_sentence = '$$';
+      let formula_sentence = "$$";
       formula_sentence += String(this.coefficients[0].value);
       let i = 1;
       this.coefficients.slice(1).forEach(each_coefficient => {
-        formula_sentence += '+' + String(each_coefficient.value) + 's^' + String(i);
+        formula_sentence +=
+          "+" + String(each_coefficient.value) + "s^" + String(i);
         i++;
       });
-      formula_sentence += '$$';
+      formula_sentence += "$$";
       return formula_sentence;
     }
   }

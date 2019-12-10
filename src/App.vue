@@ -6,18 +6,9 @@
       href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
     />
     <div id="content">
-      <div class="chart-container">
-        <chart :chartData="chartData" />
-      </div>
-      <div class="sidebar">
-        <sidebar
-        @changeChartData="changeChartData" 
-        @changeCoefficient="changeCoefficient"
-        />
-      </div>
-      <div class="display">
-        <display :coefficients="coefficients"/>
-      </div>
+      <display :coefficients="coefficients" :isHurwitzStable="isHurwitzStable"/>
+      <chart :chartData="chartData" />
+      <sidebar @changeChartData="changeChartData" @changeCoefficient="changeCoefficient" />
     </div>
   </div>
 </template>
@@ -34,49 +25,41 @@ export default {
     display: Display
   },
   methods: {
-    changeChartData: function(newData) {
+    changeChartData: function(api_response) {
       // make chartData
+      const newData = api_response.roots;
       const pointBackgroundColor = newData.map(each_data => {
         return each_data.x > 0 ? "#ff0000" : "#0000ff";
       });
       this.chartData = {
         datasets: [
           {
-            label: "Scatter Dataset",
             data: newData,
             pointBackgroundColor: pointBackgroundColor
           }
         ]
       };
+      this.isHurwitzStable = api_response.hurwitz_test;
       console.log("in change chart data");
       console.log(this.chartData);
     },
-    changeCoefficient:function(newCoefficient){
-      this.coefficients=newCoefficient;
+    changeCoefficient: function(newCoefficient) {
+      this.coefficients = newCoefficient;
     }
   },
   data: function() {
     return {
       chartData: null,
-      coefficients:null
+      coefficients: null,
+      isHurwitzStable: null
     };
   }
 };
 </script>
 
 <style scoped>
-.chart-container {
-  padding: 30px;
-  width: 500px;
-  height: 500px;
-  float: left;
-}
 #content {
-  position: relative;
-}
-.sidebar {
-  float: left;
-  width: 150px;
-  margin: 20px;
+  /*position: relative;*/
+  text-align: center;
 }
 </style>

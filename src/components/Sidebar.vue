@@ -1,6 +1,6 @@
 
 <template>
-  <div id="sidevar">
+  <span id="sidebar">
     <div id="coef-buttons">
       <button v-on:click="push">add</button>
       <button v-on:click="pop_coef">delete</button>
@@ -19,8 +19,17 @@
       ></div>
     </draggable>
     <button v-on:click="check">check</button>
-  </div>
+  </span>
 </template>
+
+<style scoped>
+#sidebar {
+  float: left;
+  width: 130px;
+  margin: 10px;
+  text-align: center;
+}
+</style>
 
 <script>
 import CoefficientInput from "./CoefficientInput";
@@ -33,7 +42,7 @@ export default {
         name: String(this.coefficients.length) + "-th coefficient",
         value: null,
         index: this.coefficients.length,
-        id:this.coefficients.length
+        id: this.coefficients.length
       });
     },
     pop_coef: function() {
@@ -65,8 +74,8 @@ export default {
       if (!roots) {
         return;
       }
-      this.$emit("changeCoefficient", Object.assign([],this.coefficients));
-      this.$emit("changeChartData", roots);
+      this.$emit("changeCoefficient", Object.assign([], this.coefficients));
+      this.$emit("changeChartData", result);
     },
     onEnd: function() {
       let i = 0;

@@ -41,7 +41,7 @@ def hurwitz():
     roots = list(map(lambda x: {"x": float(x.real),
                                 "y": float(x.imag)}, roots))
     print(roots)
-    return {"roots": roots}
+    return {"roots": roots, "hurwitz_test": result}
 
 
 if __name__ == "__main__":

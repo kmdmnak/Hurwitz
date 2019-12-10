@@ -1,8 +1,18 @@
 <template>
-  <div class="chart-container">
+  <span id="chart-container">
     <scatter-chart :chartdata="chartData" :options="options" />
-  </div>
+  </span>
 </template>
+
+<style scoped>
+#chart-container {
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+  float: left;
+  text-align: center;
+}
+</style>
 
 <script>
 import ScatterChart from "./Chart.vue";
@@ -16,20 +26,36 @@ export default {
   data: () => ({
     loaded: false,
     options: {
+      legend: {
+        //凡例設定
+        display: false //表示設定
+      },
+      title: {
+        display: false //表示設定
+      },
       scales: {
         xAxes: [
           {
             type: "linear",
+            scaleLabel: {
+              display: true,
+              labelString: "real"
+            }
           }
         ],
         yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: "image"
+            }
+          }
         ]
       }
     },
     data: {
       datasets: [
         {
-          label: "Scatter Dataset",
           data: [{ x: 1, y: -4.5 }, { x: 3, y: 2.2 }]
         }
       ]

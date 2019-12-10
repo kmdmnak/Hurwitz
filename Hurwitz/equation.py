@@ -14,7 +14,7 @@ def solve_root(coefficients, ploting=True):
     print("polynomial: ", f)
     print("roots: ", roots)
     """
-    result = areRootsRealPositive(roots)
+    result = areRootsRealNegative(roots)
     return result,roots
 
 
@@ -28,7 +28,7 @@ def solve(coefficients, ploting=True):
     print("polynomial: ", f)
     print("roots: ", roots)
     """
-    result = areRootsRealPositive(roots)
+    result = areRootsRealNegative(roots)
 
     if ploting:
         for each_root in roots:
@@ -42,5 +42,5 @@ def solve(coefficients, ploting=True):
     return result
 
 
-def areRootsRealPositive(roots):
+def areRootsRealNegative(roots):
     return sum(list(map(lambda x: x.real > 0, roots))) == 0
