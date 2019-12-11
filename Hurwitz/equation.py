@@ -1,6 +1,6 @@
 
 from numpy.polynomial.polynomial import Polynomial
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from numpy import linspace, zeros
 
 
@@ -17,7 +17,7 @@ def solve_root(coefficients, ploting=True):
     result = areRootsRealNegative(roots)
     return result,roots
 
-
+'''
 def solve(coefficients, ploting=True):
     f = Polynomial(list(reversed(coefficients)))
 
@@ -40,7 +40,7 @@ def solve(coefficients, ploting=True):
         plt.plot(zeros(axisLine.shape), axisLine, c="red")
         plt.show()
     return result
-
+'''
 
 def areRootsRealNegative(roots):
     return sum(list(map(lambda x: x.real > 0, roots))) == 0

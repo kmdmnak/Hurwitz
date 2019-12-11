@@ -2,8 +2,17 @@
     "version": 2,
     "builds": [
         {
-            "src": "server.py",
-            "use": "@now/python"
+            "src": "api/server.py",
+            "use": "@sisp/python-wsgi",
+            "config": {
+                "maxLambdaSize": "15mb"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/.*",
+            "dest": "/"
         }
     ]
 }
