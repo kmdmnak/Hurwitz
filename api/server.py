@@ -2,13 +2,12 @@ from flask import Flask, request
 #import socket
 from Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
 from Hurwitz.equation import solve_root
-
+"""
 import firebase_admin
 from firebase_admin import credentials
-
 cred = credentials.Certificate("key/hurwitz-key.json")
 firebase_admin.initialize_app(cred)
-
+"""
 PORT_NUMBER = 3360
 
 app = Flask(__name__, static_url_path="/source")
