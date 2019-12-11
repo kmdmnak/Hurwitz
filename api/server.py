@@ -1,5 +1,5 @@
 from flask import Flask, request
-#import socket
+
 from Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
 from Hurwitz.equation import solve_root
 """
@@ -49,13 +49,14 @@ def hurwitz():
     return {"roots": roots, "hurwitz_test": result}
 
 #app.run()
-"""
+
 if __name__ == "__main__":
+    import socket
     app.run(
         host=socket.gethostbyname(socket.gethostname()),
         port=PORT_NUMBER,
         debug=True)
-"""
+
 
 
 """
