@@ -1,7 +1,7 @@
 from flask import Flask, request
 
-from Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
-from Hurwitz.equation import solve_root
+from .Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
+from .Hurwitz.equation import solve_root
 """
 import firebase_admin
 from firebase_admin import credentials
@@ -48,16 +48,15 @@ def hurwitz():
     print(roots)
     return {"roots": roots, "hurwitz_test": result}
 
-#app.run()
 
+"""
 if __name__ == "__main__":
     import socket
     app.run(
         host=socket.gethostbyname(socket.gethostname()),
         port=PORT_NUMBER,
         debug=True)
-
-
+"""
 
 """
 <!-- The core Firebase JS SDK is always required and must be listed first -->
