@@ -10,7 +10,7 @@ firebase_admin.initialize_app(cred)
 """
 PORT_NUMBER = 3360
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/sources")
 
 
 @app.route('/')
@@ -21,7 +21,7 @@ def index():
     <div id="app"></div>
     <div id="app1"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML"></script>
-    <script src="./main.js"></script>
+    <script src="./sources/main.js"></script>
     """
     return text
 
@@ -48,14 +48,14 @@ def hurwitz():
     print(roots)
     return {"roots": roots, "hurwitz_test": result}
 
-"""
+
 if __name__ == "__main__":
     import socket
     app.run(
         host=socket.gethostbyname(socket.gethostname()),
         port=PORT_NUMBER,
         debug=True)
-"""
+
 
 """
 <!-- The core Firebase JS SDK is always required and must be listed first -->
