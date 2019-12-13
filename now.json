@@ -19,6 +19,10 @@
         {
             "src": "/hurwitz",
             "dest": "/api/server.py"
+        },
+        {
+            "src": "/sources/main.js",
+            "dest": "/api/static/main.js"
         }
     ]
 }
