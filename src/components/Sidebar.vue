@@ -22,12 +22,12 @@
   </span>
 </template>
 
-<style scoped>
+<style>
 #sidebar {
-  float: left;
-  width: 130px;
-  margin: 10px;
-  text-align: center;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  vertical-align: top;
 }
 </style>
 
@@ -60,9 +60,16 @@ export default {
     },
     hurwitz: async function() {
       // make data for api
-      const coefficient_values = this.coefficients
+      const coefficient_values_reversed = this.coefficients
         .map(each_element => each_element.value)
         .reverse();
+      // 先頭のnullを取り除く
+      const coefficient_values = [];
+      coefficient_values_reversed.forEach(v => {
+        if (v) {
+          coefficient_values.push(v);
+        }
+      });
       const result = await fetch("/hurwitz", {
         method: "POST",
         body: JSON.stringify({
@@ -74,7 +81,7 @@ export default {
       if (!roots) {
         return;
       }
-      this.$emit("changeCoefficient", Object.assign([], this.coefficients));
+      this.$emit("changeCoefficient",coefficient_values.reverse());
       this.$emit("changeChartData", result);
     },
     onEnd: function() {

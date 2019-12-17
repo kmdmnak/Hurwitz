@@ -1,10 +1,10 @@
 <template>
-  <div class="coefficient-input">
+  <span class="coefficient-input">
     <md-field>
       <label>{{label}}</label>
       <md-input :value="coefficient" v-model="value" @input="$emit('input',index, value)"></md-input>
     </md-field>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .coefficient-input {
-  height: 40px;
-  margin: 10px;
+  height: 10px;
+  /*margin: 10px;*/
 }
 </style>

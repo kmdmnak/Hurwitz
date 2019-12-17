@@ -6,9 +6,11 @@
       href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
     />
     <div id="content">
-      <display :coefficients="coefficients" :isHurwitzStable="isHurwitzStable"/>
-      <chart :chartData="chartData" />
-      <sidebar @changeChartData="changeChartData" @changeCoefficient="changeCoefficient" />
+      <display :coefficients="coefficients" :isHurwitzStable="isHurwitzStable" />
+      <div id="chart-sidebar">
+        <chart :chartData="chartData" />
+        <sidebar @changeChartData="changeChartData" @changeCoefficient="changeCoefficient" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +19,7 @@
 import ChartConteinar from "./components/ChartContainer.vue";
 import Sidebar from "./components/Sidebar";
 import Display from "./components/Display";
-
+console.log("In app")
 export default {
   components: {
     chart: ChartConteinar,
@@ -57,9 +59,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+body {
+  width: 100%;
+  height: 100%;
+}
 #content {
   /*position: relative;*/
-  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+#chart-sidebar {
+  height: 80%
 }
 </style>

@@ -6,17 +6,16 @@
 
 <style scoped>
 #chart-container {
-  padding: 10px;
-  width: 400px;
-  height: 400px;
-  float: left;
-  text-align: center;
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  height: 100%;
 }
 </style>
 
 <script>
 import ScatterChart from "./Chart.vue";
-
+console.log("in chart container");
 export default {
   name: "chart",
   components: {
@@ -26,6 +25,8 @@ export default {
   data: () => ({
     loaded: false,
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       legend: {
         //凡例設定
         display: false //表示設定

@@ -7,11 +7,16 @@
     <vue-mathjax :formula="formula" :safe="false"></vue-mathjax>
   </div>
 </template>
+
 <style scoped>
 #display {
-  padding: 40px;
+  height: 15%;
+  margin-top: 20px;
+  text-align: center;
+
 }
 </style>
+
 <script>
 import { VueMathjax } from "vue-mathjax";
 export default {
@@ -26,11 +31,11 @@ export default {
         return null;
       }
       let formula_sentence = "$$";
-      formula_sentence += String(this.coefficients[0].value);
+      formula_sentence += String(this.coefficients[0]);
       let i = 1;
       this.coefficients.slice(1).forEach(each_coefficient => {
         formula_sentence +=
-          "+" + String(each_coefficient.value) + "s^" + String(i);
+          "+" + String(each_coefficient) + "s^" + String(i);
         i++;
       });
       formula_sentence += "$$";
