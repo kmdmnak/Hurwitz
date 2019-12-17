@@ -16,6 +16,11 @@ firebase_admin.initialize_app(cred)
 """
 PORT_NUMBER = 3360
 
+<<<<<<< HEAD
+=======
+app = Flask(__name__, static_url_path="/sources")
+
+>>>>>>> c1e42df4dadfa6f48a6d332283aaff2dba6d3c10
 
 @app.route('/')
 @app.route('/index')
@@ -25,7 +30,7 @@ def index():
     <div id="app"></div>
     <div id="app1"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML"></script>
-    <script src="./main.js"></script>
+    <script src="./sources/main.js"></script>
     """
     return text
 
@@ -53,7 +58,10 @@ def hurwitz():
     return {"roots": roots, "hurwitz_test": result}
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1e42df4dadfa6f48a6d332283aaff2dba6d3c10
 if __name__ == "__main__":
     import socket
     app.run(
