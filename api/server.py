@@ -2,12 +2,12 @@ from flask import Flask, request
 try:
     from .Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
     from .Hurwitz.equation import solve_root
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path="/sources")
 except Exception:
     # start in dev
-    from api.Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
-    from api.Hurwitz.equation import solve_root
-    app = Flask(__name__,static_url_path="/")
+    from Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
+    from Hurwitz.equation import solve_root
+    app = Flask(__name__, static_url_path="/sources")
 """
 import firebase_admin
 from firebase_admin import credentials
@@ -16,11 +16,6 @@ firebase_admin.initialize_app(cred)
 """
 PORT_NUMBER = 3360
 
-<<<<<<< HEAD
-=======
-app = Flask(__name__, static_url_path="/sources")
-
->>>>>>> c1e42df4dadfa6f48a6d332283aaff2dba6d3c10
 
 @app.route('/')
 @app.route('/index')
@@ -58,10 +53,6 @@ def hurwitz():
     return {"roots": roots, "hurwitz_test": result}
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c1e42df4dadfa6f48a6d332283aaff2dba6d3c10
 if __name__ == "__main__":
     import socket
     app.run(
