@@ -7,7 +7,7 @@
       <button v-on:click="hurwitz">execute</button>
     </div>
     <div id="execution"></div>
-    <draggable v-model="coefficients" @end="onEnd">
+    <!--<draggable v-model="coefficients" @end="onEnd">-->
       <div
         is="coefficient-input"
         v-for="coef in coefficients"
@@ -17,7 +17,7 @@
         v-bind:index="coef.index"
         @input="updatedInput"
       ></div>
-    </draggable>
+    <!--</draggable>-->
     <button v-on:click="check">check</button>
   </span>
 </template>

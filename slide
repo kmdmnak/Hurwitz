@@ -1,0 +1,509 @@
+\documentclass[dvipdfmx,11pt]{beamer}
+%[11pt,dvips,CJK]{beamer}
+%\usetheme{metropolis}%{Warsaw}
+\usefonttheme{professionalfonts}
+\setbeamercovered{dynamic}
+\usetheme{Warsaw}%{CambridgeUS}
+\usepackage{bm}
+
+\title{多項式のフルビッツ安定性}
+\author{山本・森・駒田}
+%\date[2014/12/21]{\TeX \& \LaTeX Advent Calender 2014 12/21}
+\institute[東京理科大学]{関川研究室}
+% [..]に省略名が書ける
+
+\begin{document}
+	\maketitle
+  
+  
+  \begin{frame}{フルビッツ多項式}
+      \begin{block}{定義 : フルビッツ多項式}
+          多項式
+          \begin{equation}
+          P(s)=P_0+P_1S+...+P_nS^n
+          \end{equation}
+          について、
+          全ての根が複素平面の左側にあるとき、$P(s)$を、フルビッツ多項式という。
+      \end{block}
+  \end{frame}
+  
+  
+  \begin{frame}{フルビッツ多項式}
+      \begin{block}{フルビッツ多項式の性質}
+          \begin{enumerate}
+          	\item $P(s)$が実フルビッツ多項式ならば、全ての係数は非零かつ同符号 \\
+            \item $P(s)$が$n$次フルビッツ多項式ならば、$P(i\omega)$の偏角
+            $\arg[P(i\omega)]$は連続かつ$(-\infty,\infty)$で狭義単調増加する$\omega$の関数。さらにその増加量は、
+            \begin{equation}
+            	\arg[P(+i\infty)]-\arg[P(-i\infty)]=n\pi
+			\end{equation}
+          \end{enumerate}
+          \end{block}
+  \end{frame}
+  
+  
+  \begin{frame}{フルビッツ多項式}
+      %ここで,以下を証明すればよい。
+      多項式$P(s)$について、以下の多項式を定義する
+      \begin{block}{定義}
+      	\begin{eqnarray}
+			P^{even}(s)&:=&p_0+p_2s^2+p_4s^4+...+\\
+            P^{odd}(s)&:=&p_1s+p_3s^3+p_5s^5 +...+\\
+            P^e(\omega)&:=&P^{even}(i\omega) \\
+            P^o(\omega)&:=&\dfrac{P^{odd}(i\omega)}{i\omega}
+		\end{eqnarray}
+      \end{block}
+  \end{frame}
+  
+  
+	\begin{frame}{フルビッツ多項式}
+		\begin{block}{定義 : 隔離性}
+    		\begin{itemize}
+				\item $P_{2n}$と$P_{2n-1}$が同符号
+        		\item $P^e(\omega)$と$P^o(\omega)$の根はすべて実数で、$P^e(\omega)$の$m$個の正根と$P^o(\omega)$の$m-1$個の正根は、\begin{equation}
+                0<\omega_{e,1}<\omega_{o,1}<\omega_{e,2}<...<\omega_{e,m}<\omega_{o,m}\end{equation}のように隔離される。
+  			\end{itemize}
+  		\end{block}
+	\end{frame}
+  
+  
+  \begin{frame}{フルビッツ安定}
+    \begin{block}{隔離定理,Hermite-Biehler定理}
+        実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+    \end{block}
+  \end{frame}
+
+
+  \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+        実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+       \end{block}
+      \begin{block}{⇒証明}
+        $P(s)$がフルビッツ安定ならば、$P^{even}(s)$と$P^{odd}(s)$の最高次係数が同符号であることは明らか。
+          また、$P(s)$の全ての係数を正、$n=2m$とする。性質1.2より、$arg[P(i\omega)]$は競技単調増加。$P(s)$の根は実軸に対して対称なので、$\omega$が$-\omega$から0,0から$+\infty$まで増加するときの偏角の増加は等しく$\dfrac{n\pi}{2}$であり、$P(0)$は$P_0>0$より正の実数である。
+      \end{block}
+  \end{frame}
+
+
+  \begin{frame}{フルビッツ安定}
+    \begin{block}{隔離定理,エルミートビーラーの定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+      \end{block}
+      \begin{block}{⇒証明}
+    従って、$P(i\omega)$は$\omega:0\rightarrow+\infty$で原点を$\dfrac{n\pi}{2}$だけ回転し、$P(i\omega)=/0$からその間に原点を通らない。よって、虚軸上を$m$回横切らなければならないので、そのとき実部は$0$となる。このときの$\omega$を
+            \begin{equation}
+          \omega_{R,1},\omega_{R,2},...,\omega_{R,m}
+          \end{equation}
+          とおく。
+    \end{block}
+  \end{frame}
+
+
+  \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+        実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+    \end{block}
+    \begin{block}{⇒証明}
+      同様に、$P(i\omega)$は実軸上を$m-1$回横切るので、そのとき虚部は$0$となる。$\omega=0$も含めて、このときの$\omega$を,
+      \begin{equation}
+      0,\omega_{I,1},\omega_{I,2},...,\omega_{I,m-1}
+      \end{equation}
+        とおく。
+        さらに、$P(i\omega)$は原点の周りを回転するので、
+        明らかに、
+        \begin{equation}
+        0<\omega_{R,1}<\omega_{I,1}<\omega_{R,2}<\omega_{I,2},...,<\omega_{R,m-1}<\omega_{I,m-1}<\omega_{n,m}
+      \end{equation}
+      であるから、$P^e(\omega)$と$P^o(\omega)$の正の根は隔離される。
+      \end{block}
+  \end{frame}
+
+  \begin{frame}{フルビッツ安定}
+    \begin{block}{隔離定理,Hermite-Biehler定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+    \end{block}
+    \begin{block}{$\Leftarrow$証明}
+    $P(s)$がインターレース性を満たし、次数が$n=2m$かつ$P_{2m},P_{2m-1}$がどちらも正と仮定する。$P^e(\omega)$と$P^o(\omega)$の根は、
+      \begin{equation}
+      0<\omega^P_{e,1}<\omega^P_{o,1}<\omega^P_{e,2}<...<\omega^P_{e,m}<\omega^P_{o,m}
+      \end{equation}
+      とする。
+      ここから、
+      \begin{eqnarray}
+      P^e(\omega)=P_{2m}\prod^m_{i=1} (\omega^2-(\omega^P_{e,i})^2)  \\
+      P^o(\omega)=P_{2m-1}\prod^{m-1}_{i=1} (\omega^2-(\omega^P_{o,i})^2)
+      \end{eqnarray}
+    \end{block}
+  \end{frame}
+
+
+
+  \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+      \end{block}
+      \begin{block}{$\Leftarrow$証明}
+      次数が$2m$で係数が全て正である安定な多項式$Q(s)$を考える。
+      例えば、$Q(s)=(s+1)^{2m}$をとろう。いずれにせよ
+      \begin{equation}
+      Q(s)=q_1+q_1s+q_2s^2+...+q_{2m}s^{2m}
+      \end{equation}
+      $Q(s)$は安定なので、定理前半から$Q(s)$はインターレース性を満たし、$Q^e(\omega)$は$m$個の正の根$\omega^Q_{e,1},...,\omega^Q_{e,m}$を持ち、$Q^o(\omega)$は$m-1$個の正の根$\omega^Q_{o,1},...,\omega^Q_{o,m-1}$を持ち、
+      \begin{equation}
+      0<\omega^Q_{e,1}<\omega^Q_{o,1}<\omega^Q_{e,2}<...<\omega^Q_{e,m}<\omega^Q_{o,m}
+      \end{equation}
+      \end{block}
+  \end{frame}
+
+
+  \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+      \end{block}
+      \begin{block}{$\Leftarrow$証明}
+  故に、
+      \begin{eqnarray}
+      Q^e(\omega)=q_{2m}\prod^m_{i=1} (\omega^2-(\omega^Q_{e,i})^2)  \\
+      Q^o(\omega)=q_{2m-1}\prod^{m-1}_{i=1} (\omega^2-(\omega^Q_{o,i})^2)
+      \end{eqnarray}
+      \end{block}
+      \end{frame}
+      \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+      \end{block}
+      \begin{block}{$\Leftarrow$証明}
+  ここで、
+  	
+    \begin{eqnarray}
+      P^e_\lambda(\omega):=\left[(1-\lambda)q_{2m}+\lambda p_{2m}\right]\prod_{i=1}^m \{\omega^2-\left[(1-\lambda)(\omega^Q_{e1})^2+\lambda (\omega^2_{e,i})^2\right]\} \nonumber \\
+      P^o_\lambda(\omega):=\left[(1-\lambda)q_{2m-1}+\lambda p_{2m-1}\right]\prod_{i=1}^m \left\{\omega^2-\left[(1-\lambda)(\omega^Q_{o1})^2+\lambda (\omega^2_{o,i})^2\right]\right\} \nonumber
+      \end{eqnarray}
+    
+      \end{block}
+  \end{frame}
+    
+    \begin{frame}{フルビッツ安定}
+      \begin{block}{隔離定理,Hermite-Biehler定理}
+          実多項式$P(S)$がフルビッツ安定であることと、隔離性を満たすことは同値
+      \end{block}
+      \begin{block}{$\Leftarrow$証明}
+      	で定義される$P_\lambda(s) := P_\lambda^{even}(s)+SP_\lambda^{odd}$を考える。
+        明らかに、$P_\lambda(s)$の係数は$\lambda$の多項式関数であり、$[0,1]$で連続
+        さらに,$P_\lambda(s)$の最高次係数は$(1-\lambda)q_{2m}+\lambda P_{2m}$であり、$\lambda$が0から1に変化しても常に正。
+        $\lambda=0$なら$P_o(s)=Q(s)$,$\lambda=1$なら$P_1(s)=P(s)$
+        $P(s)$がフルビッツ安定でないとすると、境界横断定理より、$(0,1]$に$P_2$が虚軸上の根を持つような$\lambda$が存在する。
+       
+      \end{block}
+      \end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	左半平面あるいは、実多項式のフルビッツ安定の問題を解き、インターレース定理、従って境界交差定理に基づく、初頭の試験手順へ発展させる。この手順はよく知られるラウスの試験に同等であると判明する。  
+        $n$次の実多項式公式
+        \begin{eqnarray}
+			P(s)=p_0+p_1s+...+p_ns^n\\
+            p_i>0,i=0,...,n
+		\end{eqnarray}
+        $P(s)$を指数の偶奇により、
+        \begin{equation}
+			P(s)=P^{even}(s)+P^{odd}(s)
+		\end{equation}
+        に分解できるとする。
+        
+	\end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	$n-1$次の多項式
+        ($n=2m$の場合)
+        \begin{equation}
+			Q(s)=\left[P^{even}(s)-\dfrac{P_{2m}}{P_{2m-1}}sP^{odd}(s)\right]+P^{odd}(s)
+		\end{equation}
+        
+        ($n=2m+1$の場合)
+        \begin{equation}
+			Q(s)=\left[P^{odd}(s)-\dfrac{P_{2m+1}}{P_{2m}}sP^{even}(s)\right]+P^{even}(s)
+		\end{equation}
+        と定義する。
+        \begin{equation}
+			\mu=\dfrac{P_n}{P_{n-1}}
+		\end{equation}
+        を用いて、
+        \begin{equation}
+        \begin{split}
+			Q(s)=P_{n-1}S^{n-1}+(P_{n-2}-\mu P_{n-3})S^{n-2}+P_{n-2}S^{n-3} \\
+            +(P_{n-4}-\mu P_{n-5})S^{n-4}+...+ \nonumber
+        \end{split}
+\end{equation}
+    \end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	\begin{block}{補題1.4}
+			$P(s)$が全て正係数のとき、
+            $P(S)$が安定⇔$Q(s)$が安定
+		\end{block}
+        \begin{block}{証明}
+			たとえば、$n=2m$とし、インターレース定理を使うとすると、
+            (a)$P(s)=p_0+...+p_{2m}s^{2m}$が安定なので、インターレース定理を満たすと仮定する。
+            \begin{equation}
+            	0<\omega_{e,1}<\omega_{o,1}<\omega_{e,2}<...<\omega_{e,m}<\omega_{o,m}
+			\end{equation}
+            を$P^e(\omega)$と$P^o(\omega)$のインターレース根とする。
+            
+		\end{block}
+	\end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	\begin{block}{補題1.4}
+			$P(s)$が全て正係数のとき、
+            $P(S)$が安定⇔$Q(s)$が安定
+		\end{block}
+        \begin{block}{証明}
+			 (1.56)より、$Q^e(\omega),Q^o(\omega)$はそれぞれ
+            \begin{eqnarray}
+				Q^e(\omega)=P^e(\omega)+\mu\omega^2P^e(\omega),\mu=\dfrac{P_{2m}}{P_{2m-1}} \\
+                Q^o(\omega)=P^o(\omega)
+			\end{eqnarray}
+            で与えられる。
+            このことから、$Q^o(\omega)$が要する数の正の根、つまり、$P^o(\omega)$の$m-1$個の根があることがすでに結論付けられる。
+		\end{block}
+     \end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	\begin{block}{補題1.4}
+			$P(s)$が全て正係数のとき、
+            $P(S)$が安定⇔$Q(s)$が安定
+		\end{block}
+		\begin{block}{証明}
+			また、$Q^e(s)$の形から、
+            \begin{eqnarray}
+				Q^e(0)=P^e(0)>0 \\
+                Q^e(\omega_{0,1})=P^e(\omega_{0,1})<0\\
+                ...\\
+                Q^e(\omega_{0,m-2})=P^e(\omega_{0,m-2})...(-1)^{m-2}\\
+                Q^e(\omega_{0,m-1})=P^e(\omega_{0,m-1})...(-1)^{m-1}
+			\end{eqnarray}
+            と推定できる。
+            故に、$Q^e(\omega)$には$m-1$個の正の根$\omega'_{e,1},\omega'_{e,2},...,\omega'_{e,m-1}$があり、$Q^o(\omega)$の根と交錯することが確立される。
+            さらに、$Q^e(\omega)$は$\omega^2$の次数が$m-1$なので、持ちうる正の根は唯一である。
+		\end{block}
+	\end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	\begin{block}{補題1.4}
+			$P(s)$が全て正係数のとき、
+            $P(S)$が安定⇔$Q(s)$が安定
+		\end{block}
+		\begin{block}{証明}
+        	最後に、$Q^o(\omega)$の最後の根$\omega_{e,m-1}$で$Q^e(\omega)$の符号は$(-1)^{m-1}$と同じであるとわかる。
+            しかし、$Q^e(\omega)$の最高係数は
+            \begin{equation}
+				q_{2m-2}(^1)^{m-1}
+			\end{equation}
+        	に過ぎない。
+            この$q_{2m-2}$は$q_{2m-1}=p_{2m-1}$と同様に厳密に正でなくてはならない。そうでなければ、$Q^e(\omega)$は$\omega_{o,m-1}$から$+\infty$の間の符号変化を再び引き起こし、$Q^e(\omega)$が$m$個の正の根を持つことに矛盾する。
+            (一方、それは$\omega^2$の次数が$m-1$の多項式)
+            従って、$P(s)$が安定ならば、インターレースの特性を満たし、安定する。
+            
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+    	\begin{block}{補題1.4}
+			$P(s)$が全て正係数のとき、
+            $P(S)$が安定⇔$Q(s)$が安定
+		\end{block}
+		\begin{block}{証明}
+        	(b) 逆に、$Q(s)$が安定ならば、
+            \begin{equation}
+				P(s)=[Q^e(s)+\mu sQ^e(s)]+Q^o(s),\mu=\dfrac{p_{2m}}{p_{2m-1}}
+			\end{equation}
+            と書ける。
+            (a)と同じ推論により、$P^o(\omega)$には既に必要となる$m-1$個の正の根があり、$P^e(\omega)$にはすでに$P^o(\omega)$の根と交錯する区間$(0,\omega_{0,m-1})$に$m-1$個の根がある。
+            さらに、$\omega_{0,m-1}$での$P^e(\omega)$の符号は$(-1)^{m-1}$と同じであるが、$P(s)$の項$P_{2m}S^{2m}$は$+\infty$での$P^e(\omega)$の符号を$(-1)^m$と同じする。
+            従って、$P^e(\omega)$は$m$番目の正の根、
+            \begin{equation}
+				\omega_{e,m}>\omega_{o,m-1}
+			\end{equation}
+            を持つので、$P(s)$はインターレースの特性を満たし、ゆえに安定である。
+            この補題から、次のように次数を連続的に減らすことで、多項式$P(s)$の安定性を確認できるとわかる。
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+		\begin{block}{補題5.1}
+        	\begin{eqnarray}
+				P_1(s)=P^{even}(s)+P_1^{odd}(s) \\
+                P_2(s)=P^{even}(s)+P_2^{odd}(s) 
+			\end{eqnarray}
+            が同じ偶数部$P^{even}(s)$と異なる奇数部$P_1^{odd}(s)$と$P_2^{odd}(s)$をそれぞれ持ち、
+            \begin{equation}
+				P_1^o(\omega)\leq P_2^o(\omega) (\forall \omega\in[0,\infty])
+			\end{equation}
+            を満たす2つの安定多項式とする。
+            このとき、$P^{odd}(s)$が
+            \begin{equation}
+				P_1^o(\omega)\leq P^o(\omega)\leq P_2^o(\omega) (\forall \omega\in[0,\infty]) (\forall \omega\in[0,\infty])
+			\end{equation}
+            を満たすようなすべての多項式
+            \begin{equation}
+				P(s)=P^{even}(s)+P^{odd}(s)
+			\end{equation}
+            は安定である。
+		\end{block}
+	\end{frame}
+    
+    
+    \begin{frame}{フルビッツ安定}
+		\begin{block}{補題5.1の証明}
+        	$P_1(s)$と$P_2(s)$は安定だから、$P_1^o(\omega)$と$P_2^o(\omega)$はどちらも$P^e(\omega)$とインターレース定義を満たす。
+            特に、$P^o_1(\omega)$と$P^o_2(\omega)$は次数が等しいだけでなく、最高次係数の符号は、$P^e(\omega)$の最高次係数と同じである。
+            
+            ここから、$P^o(\omega)$が$P^o_1(\omega)$や$P^o_2(\omega)$と同次かつ最高次係数の符号が同じでない限り、$P^o(\omega)$は2を満たしえない。
+            このとき、2の条件より、$P^o(\omega)$の根と$P^e(\omega)$の根は隔離する。
+            故に、定理1.7から$P(s)$は安定である。
+        \end{block}
+    \end{frame}
+    
+    \begin{frame}{フルビッツ test algorithm}
+		\begin{block}{Algorithm1.2}
+			\begin{itemize}
+				\item $P^{(0)}(s) := P(s)$
+                \item $P^{(i)}$の係数が全て正であることを確認
+                \item (1.57)に従い、$P^{(i+1)}:=Q(s)$
+                \item (2)を満たさない($P(s)$はフルビッツでない)か、$P^{(i-2)}$(次数2)に達するまで(2)に戻る。この場合、条件(2)でも十分($P(s)$はフルビッツ)
+			\end{itemize}
+		\end{block}
+	\end{frame}
+    
+    
+     \begin{frame}{Kharitonovの定理}
+     	\begin{block}{Kharitonovの定理}
+        	以下の4つの多項式がフルビッツである場合に限り、集合族$I(S)$のすべての多項式はフルビッツである。
+            \begin{eqnarray}
+               K^1(s)&=&x_0+x_1 s+y_2 s^2+y_3s^3+x_4s^4+x_5s^5+y_6s^6+...+ \nonumber \\
+              K^2(s)&=&x_0+y_1s+y_2s^2+x_3s^3+x_4s^4 + y_5s^5+y_6s^6+...+ \nonumber \\
+              K^3(s)&=&y_0+x_1s+x_2s^2+y_3s^3+y_4s^4+x_5s^5+x_6s^6+...+ \nonumber \\
+              K^4(s)&=&y_0+y_1s+x_2s^2+x_3s^3+y_4s^4+y_5s^5+x_6s^6+...+ \nonumber
+			\end{eqnarray}
+            \end{block}
+     \end{frame}
+     
+     \begin{frame}
+      \begin{equation}
+      K_{max}^{even}(s):=y_0+x_2s^2+y_4s^4+x_6s^6+...+
+      \end{equation}
+      \begin{equation}
+      K_{min}^{even}(s):=x_0+y_2s^2+x_4s^4+y_6y^6+...+
+      \end{equation}
+      \begin{equation}
+      K^{odd}_{max}(s):=y_1s+x_3s^3+y_5y^5+x_7s^7+...+
+      \end{equation}
+      \begin{equation}
+      K^{odd}_{min}(s):=x_1s+y_3s^3+x_5y^5+y_7s^7+...+
+      \end{equation}
+      と定義する.  
+      このとき、
+      \begin{equation}
+      K^1(s)=K_{min}^{even}(s)+K^{odd}_{min}(s)
+      \end{equation}
+      \begin{equation}
+      K^2(s)=K_{min}^{even}(s)+K^{odd}_{max}(s)
+      \end{equation}
+      \begin{equation}
+      K^3(s)=K_{max}^{even}(s)+K^{odd}_{min}(s)
+      \end{equation}
+      \begin{equation}
+      K^4(s)=K_{max}^{even}(s)+K^{odd}_{max}(s)
+      \end{equation}
+      と表せる.  
+\end{frame}
+
+\begin{frame}
+\begin{equation}
+\delta(s)=\delta_0+\delta_1s^1+\delta_2s^2+\delta_3s^3+...+\delta_ns^n+...
+\end{equation}
+とする.  
+このとき,
+
+\begin{equation}
+K^{o}_{max}(s)=y_1-x_3s^2+y_5y^4-x_7s^6+...+
+\end{equation}
+
+
+\begin{equation}
+\delta^o(\omega)=\delta_1-\delta_3\omega^2+\delta_5\omega^4+...+
+\end{equation}
+
+\begin{equation}
+K^{o}_{min}(s)=x_1-y_3s^2+x_5y^4-y_7s^6+...+
+\end{equation}
+
+\begin{equation}
+K_{max}^{e}(s)=y_0-x_2s^2+y_4s^4-x_6s^6+...+
+\end{equation}
+\begin{equation}
+\delta^e(\omega)=\delta_0-\delta_2\omega^2+\delta_4\omega^4-\delta_6\omega^6+...+
+\end{equation}
+\begin{equation}
+K_{min}^{e}(s)=x_0-y_2s^2+x_4s^4-y_6y^6+...+
+\end{equation}
+
+となる。  
+
+\end{frame}
+
+\begin{frame}
+このとき,
+
+\begin{equation}
+K_{max}^e(\omega)-\delta^e(\omega)=(y_0-\delta_0)+(\delta_2-x_2)\omega^2+(y_4-\delta_4)\omega^4+...+
+\end{equation}
+
+さらに,
+\begin{equation}
+\delta^e(\omega)-K_{min}^e(\omega)=(\delta_0-x_0)+(y_2-\delta_2)\omega^2+(\delta_4-x_4)\omega^4+...+
+\end{equation}
+よって
+\begin{equation}
+K_{min}^e(\omega)\leq\delta^e(\omega)\leq K^e_{max}(\omega),\forall\omega\in[0,\infty]
+\end{equation}
+同様に
+\begin{equation}
+K_{min}^o(\omega)\leq\delta^o(\omega)\leq K^o_{max}(\omega)  ,\forall\omega\in[0,\infty]
+\end{equation}
+
+\end{frame}
+
+
+\begin{frame}
+補題5.1を$K_3,K_4$に適用することで、
+\begin{equation} \label{kharitonov-1}
+K_{max}^{even}(s)+\delta^{odd}(s)
+\end{equation}
+が安定であることがわかる。  
+同様に,補題5.2を$K_1,K_2$に適用することで、
+\begin{equation} \label{kharitonov-2}
+K_{min}^{odd}(s)+\delta^{odd}(s)
+\end{equation}
+
+が安定であることがわかる。  
+\ref{kharitonov-1},\ref{kharitonov-2}に補題5.2に適用することで、
+
+
+\begin{equation}
+\delta^{even}(s)+\delta^{odd}(s)=\delta(s)
+\end{equation}
+は安定であることがわかる.
+\end{frame}
+    
+    
+    
+\end{document}

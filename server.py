@@ -2,12 +2,12 @@ from flask import Flask, request
 try:
     from .Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
     from .Hurwitz.equation import solve_root
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path="/sources")
 except Exception:
     # start in dev
-    from api.Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
-    from api.Hurwitz.equation import solve_root
-    app = Flask(__name__,static_url_path="/")
+    from Hurwitz.hurwitzTest2 import HurwitzStabililtyTestForRealPolymonials
+    from Hurwitz.equation import solve_root
+    app = Flask(__name__, static_url_path="/sources")
 """
 import firebase_admin
 from firebase_admin import credentials
@@ -25,7 +25,7 @@ def index():
     <div id="app"></div>
     <div id="app1"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML"></script>
-    <script src="./main.js"></script>
+    <script src="./sources/main.js"></script>
     """
     return text
 
@@ -51,7 +51,6 @@ def hurwitz():
                                 "y": float(x.imag)}, roots))
     print(roots)
     return {"roots": roots, "hurwitz_test": result}
-
 
 
 if __name__ == "__main__":

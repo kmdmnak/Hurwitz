@@ -36,6 +36,6 @@
         "css": "tcm src --watch",
         "build": "webpack --watch",
         "start": "python ./api/server.py",
-        "dev":"cp api/server.py server.py && python server.py"
+        "dev":"python api/server.py server.py "
     }
 }
