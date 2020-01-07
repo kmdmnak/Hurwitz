@@ -2,7 +2,7 @@
   <span class="coefficient-input">
     <md-field>
       <label>{{label}}</label>
-      <md-input :value="coefficient" v-model="value" @input="$emit('input',index, value)"></md-input>
+      <md-input :value="coefficient" v-model="value" @input="$emit('input',index, value)" type="number"></md-input>
     </md-field>
   </span>
 </template>

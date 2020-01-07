@@ -2,9 +2,9 @@
 <template>
   <span id="sidebar">
     <div id="coef-buttons">
-      <button v-on:click="push">add</button>
-      <button v-on:click="pop_coef">delete</button>
-      <button v-on:click="hurwitz">execute</button>
+      <button v-on:click="push" class="md-raised md-primary">ADD COEF</button>
+      <button v-on:click="pop_coef" class="md-raised md-secondary">DELETE COEF</button>
+      <button v-on:click="hurwitz">EXECUTE</button>
     </div>
     <div id="execution"></div>
     <!--<draggable v-model="coefficients" @end="onEnd">-->
@@ -18,7 +18,6 @@
         @input="updatedInput"
       ></div>
     <!--</draggable>-->
-    <button v-on:click="check">check</button>
   </span>
 </template>
 
@@ -50,9 +49,6 @@ export default {
         return;
       }
       this.coefficients.pop();
-    },
-    check: function() {
-      console.log(this.coefficients);
     },
     updatedInput(index, newValue) {
       console.log(index, newValue);

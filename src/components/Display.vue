@@ -4,7 +4,9 @@
       <h1 v-if="isHurwitzStable" v-bind:style="{color:'blue'}">This polynomial is Hurwitz Stable</h1>
       <h1 v-else v-bind:style="{color:'red'}">This polynomial is not Hurwitz Stable</h1>
     </div>
-    <vue-mathjax :formula="formula" :safe="false"></vue-mathjax>
+    <div v-if="formula!==null">
+      <vue-mathjax :formula="formula" :safe="false"></vue-mathjax>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,6 @@
   height: 15%;
   margin-top: 20px;
   text-align: center;
-
 }
 </style>
 
@@ -34,8 +35,7 @@ export default {
       formula_sentence += String(this.coefficients[0]);
       let i = 1;
       this.coefficients.slice(1).forEach(each_coefficient => {
-        formula_sentence +=
-          "+" + String(each_coefficient) + "s^" + String(i);
+        formula_sentence += "+" + String(each_coefficient) + "s^" + String(i);
         i++;
       });
       formula_sentence += "$$";
