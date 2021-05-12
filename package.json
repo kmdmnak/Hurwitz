@@ -6,7 +6,7 @@
     "author": "KMDMNAK <kmdmuneaki@gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "core-js": "^3.4.5",
         "mathjax": "^2.7.7",
         "vue": "2.5.0",
